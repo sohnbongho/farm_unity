@@ -27255,6 +27255,7 @@ MonoBehaviour:
   theRB: {fileID: 2141846275}
   moveSpeed: 8
   moveInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  anim: {fileID: 1720507727}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
