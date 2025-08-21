@@ -20,7 +20,7 @@ public class GrowBlock : MonoBehaviour
     public Sprite cropPlanted, cropGrowing1, cropGrowing2, cropRipe;
 
     public bool isWatered;
-    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,8 +35,14 @@ public class GrowBlock : MonoBehaviour
         //{
         //    AdvanceStage();
 
-        //    SetSoilSprite();
-        //}
+//    SetSoilSprite();
+//}
+#if UNITY_EDITOR
+        if (Keyboard.current.nKey.wasPressedThisFrame)
+        {
+            AdvanceCrop();
+        }
+#endif
     }
 
     public void AdvanceStage()
@@ -87,7 +93,7 @@ public class GrowBlock : MonoBehaviour
 
     public void PlantCrop()
     {
-        if(currentStage == GrowStage.ploughed && isWatered == true)
+        if (currentStage == GrowStage.ploughed && isWatered == true)
         {
             currentStage = GrowStage.planted;
             UpdateCropSprite();
@@ -96,7 +102,7 @@ public class GrowBlock : MonoBehaviour
 
     void UpdateCropSprite()
     {
-        switch(currentStage)
+        switch (currentStage)
         {
             case GrowStage.planted:
                 cropSR.sprite = cropPlanted;
@@ -112,5 +118,21 @@ public class GrowBlock : MonoBehaviour
                 break;
         }
 
+    }
+    public void AdvanceCrop()
+    {
+        if (isWatered == true)
+        {
+            if (currentStage == GrowStage.planted ||
+                currentStage == GrowStage.growing1 ||
+                currentStage == GrowStage.growing2)
+            {
+                currentStage++;
+
+                isWatered = false;
+                SetSoilSprite();
+                UpdateCropSprite();
+            }
+        }
     }
 }
