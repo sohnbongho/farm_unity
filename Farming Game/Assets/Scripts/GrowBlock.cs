@@ -53,6 +53,14 @@ public class GrowBlock : MonoBehaviour
         {
             theSR.sprite = soilTilled;
         }
+    }
+    public void PloughSoil()
+    {
+        if(currentStage == GrowStage.barren)
+        {
+            currentStage = GrowStage.ploughed;
 
+            SetSoilSprite();
+        }
     }
 }
