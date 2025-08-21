@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
         if (Keyboard.current.tabKey.wasPressedThisFrame)
         {
-            currentTool ++;
-            if((int)currentTool >= 4)
+            currentTool++;
+            if ((int)currentTool >= 4)
             {
                 currentTool = ToolType.plough;
             }
@@ -79,6 +79,23 @@ public class PlayerController : MonoBehaviour
         block = FindFirstObjectByType<GrowBlock>();
 
         //block.PloughSoil();
+
+        if (block != null)
+        {
+            switch (currentTool)
+            {
+                case ToolType.plough:
+                    block.PloughSoil();
+                    break;
+                case ToolType.wateringCan:
+                    break;
+                case ToolType.seeds:
+                    break;
+                case ToolType.basket:
+                    break;
+            }
+
+        }
 
     }
 }
