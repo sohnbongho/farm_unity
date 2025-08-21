@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        UIController.instance.SwitchTool((int)currentTool);
     }
 
     // Update is called once per frame
@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
                     block.PloughSoil();
                     break;
                 case ToolType.wateringCan:
+                    block.WaterSoil();
                     break;
                 case ToolType.seeds:
                     break;

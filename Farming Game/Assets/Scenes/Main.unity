@@ -5617,6 +5617,8 @@ MonoBehaviour:
   currentStage: 0
   theSR: {fileID: 1457555920}
   soilTilled: {fileID: 6563066755110389082, guid: 290be3330cf84bc4d93460bae4e8d47f, type: 3}
+  soilWaterd: {fileID: 8400690069364028037, guid: 290be3330cf84bc4d93460bae4e8d47f, type: 3}
+  isWatered: 0
 --- !u!4 &1392728886
 Transform:
   m_ObjectHideFlags: 0
