@@ -42,5 +42,15 @@ public class GridController : MonoBehaviour
             Mathf.RoundToInt(maxPoint.position.x - minPoint.position.x),
             Mathf.RoundToInt(maxPoint.position.y - minPoint.position.y));
 
+        for (int y = 0; y < gridSize.y; y++)
+        {
+            for (int x = 0; x < gridSize.x; x++)
+            {
+                GrowBlock newBlock = Instantiate(baseGridBlock, startpoint + new Vector3(x, y, 0f), Quaternion.identity);
+                newBlock.transform.SetParent(transform);
+            }
+        }
+
+        baseGridBlock.gameObject.SetActive(false);
     }
 }
