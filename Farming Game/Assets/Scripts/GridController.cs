@@ -6,6 +6,8 @@ public class GridController : MonoBehaviour
     public Transform minPoint, maxPoint;
     public GrowBlock baseGridBlock;
 
+    private Vector2Int gridSize;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +17,7 @@ public class GridController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void GenerateGrid()
@@ -34,7 +36,11 @@ public class GridController : MonoBehaviour
         Vector3 startpoint = minPoint.position + new Vector3(1f, 1f, 0f);
 
         // 블럭의 복사본을 생성
-        Instantiate(baseGridBlock, startpoint, Quaternion.identity);
+        //Instantiate(baseGridBlock, startpoint, Quaternion.identity);
+
+        gridSize = new Vector2Int(
+            Mathf.RoundToInt(maxPoint.position.x - minPoint.position.x),
+            Mathf.RoundToInt(maxPoint.position.y - minPoint.position.y));
 
     }
 }
