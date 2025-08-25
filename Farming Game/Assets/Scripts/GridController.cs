@@ -59,7 +59,9 @@ public class GridController : MonoBehaviour
             for (int x = 0; x < gridSize.x; x++)
             {
                 GrowBlock newBlock = Instantiate(baseGridBlock, startpoint + new Vector3(x, y, 0f), Quaternion.identity);
+                
                 newBlock.transform.SetParent(transform);
+                newBlock.theSR.sprite = null;
 
                 blockRows[y].blocks.Add(newBlock);
 
