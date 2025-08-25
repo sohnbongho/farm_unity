@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
+    public static GridController instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public Transform minPoint, maxPoint;
     public GrowBlock baseGridBlock;
 
@@ -57,7 +63,7 @@ public class GridController : MonoBehaviour
 
                 blockRows[y].blocks.Add(newBlock);
 
-                if(Physics2D.OverlapBox(newBlock.transform.position, new Vector2(.9f, .9f), 0f, gridBlockers))
+                if (Physics2D.OverlapBox(newBlock.transform.position, new Vector2(.9f, .9f), 0f, gridBlockers))
                 {
                     newBlock.theSR.sprite = null;
                     newBlock.preventUse = true;
@@ -66,6 +72,25 @@ public class GridController : MonoBehaviour
         }
 
         baseGridBlock.gameObject.SetActive(false);
+    }
+
+    public GrowBlock GetBlock(float x, float y)
+    {
+        x = Mathf.RoundToInt(x);
+        y = Mathf.RoundToInt(y);
+
+        x -= minPoint.position.x;
+        y -= minPoint.position.y;
+
+        int intX = Mathf.RoundToInt(x);
+        int intY = Mathf.RoundToInt(y);
+
+        if(intX < gridSize.x && intY < gridSize.y)
+        {
+            return blockRows[intY].blocks[intX];
+        }
+
+        return null;
     }
 }
 

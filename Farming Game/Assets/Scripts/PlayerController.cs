@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         toolIndicator.position = new Vector3(toolIndicator.position.x, toolIndicator.position.y, 0f);
 
         // 좌표를 특정 범위 이상으로 못가게 하기
-        if(Vector3.Distance(toolIndicator.position, transform.position) > toolRange)
+        if (Vector3.Distance(toolIndicator.position, transform.position) > toolRange)
         {
             Vector2 direction = toolIndicator.position - transform.position;
             direction = direction.normalized * toolRange;
@@ -109,8 +109,8 @@ public class PlayerController : MonoBehaviour
         }
 
         // 반올림하여서 넘어가지 못하게 한다.
-        toolIndicator.position = new Vector3(Mathf.FloorToInt(toolIndicator.position.x),
-            Mathf.FloorToInt(toolIndicator.position.y),
+        toolIndicator.position = new Vector3(Mathf.FloorToInt(toolIndicator.position.x) + 1f,
+            Mathf.FloorToInt(toolIndicator.position.y) + 1f,
             0f);
 
     }
@@ -119,9 +119,12 @@ public class PlayerController : MonoBehaviour
     {
         GrowBlock block = null;
 
-        block = FindFirstObjectByType<GrowBlock>();
-
+        //block = FindFirstObjectByType<GrowBlock>();
         //block.PloughSoil();
+
+        block = GridController.instance.GetBlock(toolIndicator.position.x - 1f, 
+            toolIndicator.position.y - 1f);
+
         toolWaitCounter = toolWaitTime;
 
         if (block != null)
