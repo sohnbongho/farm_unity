@@ -72,6 +72,18 @@ public class GridController : MonoBehaviour
                     newBlock.theSR.sprite = null;
                     newBlock.preventUse = true;
                 }
+
+                // 저장된 값으로 셋팅
+                if(GridInfo.instance.hasGrid == true)
+                {
+                    BlockInfo sotredBlock = GridInfo.instance.theGrid[y].blocks[x];
+
+                    newBlock.currentStage = sotredBlock.currentStage;
+                    newBlock.isWatered = sotredBlock.isWatered;
+
+                    newBlock.SetSoilSprite();
+                    newBlock.UpdateCropSprite();
+                }
             }
         }
 

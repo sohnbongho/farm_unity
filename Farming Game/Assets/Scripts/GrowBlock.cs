@@ -106,7 +106,7 @@ public class GrowBlock : MonoBehaviour
         }
     }
 
-    void UpdateCropSprite()
+    public void UpdateCropSprite()
     {
         switch (currentStage)
         {
