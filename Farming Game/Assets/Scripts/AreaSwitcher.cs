@@ -3,12 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class AreaSwitcher : MonoBehaviour
 {
-    public string sceneToLoad = "Indoors";
+    public string sceneToLoad ;
+    public Transform startPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        PlayerController.instance.transform.position = startPoint.position;
     }
 
     // Update is called once per frame
