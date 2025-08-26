@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
     }
 
     public Rigidbody2D theRB;
@@ -105,29 +105,35 @@ public class PlayerController : MonoBehaviour
             UIController.instance.SwitchTool((int)currentTool);
         }
 
-        if (actionInput.action.WasPressedThisFrame())
-        {
-            UseTool();
-        }
-
         anim.SetFloat("speed", theRB.linearVelocity.magnitude);
 
-        toolIndicator.position = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        toolIndicator.position = new Vector3(toolIndicator.position.x, toolIndicator.position.y, 0f);
-
-        // 좌표를 특정 범위 이상으로 못가게 하기
-        if (Vector3.Distance(toolIndicator.position, transform.position) > toolRange)
+        if (GridController.instance != null)
         {
-            Vector2 direction = toolIndicator.position - transform.position;
-            direction = direction.normalized * toolRange;
-            toolIndicator.position = transform.position + new Vector3(direction.x, direction.y, 0f);
+            if (actionInput.action.WasPressedThisFrame())
+            {
+                UseTool();
+            }
+
+            toolIndicator.position = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            toolIndicator.position = new Vector3(toolIndicator.position.x, toolIndicator.position.y, 0f);
+
+            // 좌표를 특정 범위 이상으로 못가게 하기
+            if (Vector3.Distance(toolIndicator.position, transform.position) > toolRange)
+            {
+                Vector2 direction = toolIndicator.position - transform.position;
+                direction = direction.normalized * toolRange;
+                toolIndicator.position = transform.position + new Vector3(direction.x, direction.y, 0f);
+            }
+
+            // 반올림하여서 넘어가지 못하게 한다.
+            toolIndicator.position = new Vector3(Mathf.FloorToInt(toolIndicator.position.x) + 1f,
+                Mathf.FloorToInt(toolIndicator.position.y) + 1f,
+                0f);
         }
-
-        // 반올림하여서 넘어가지 못하게 한다.
-        toolIndicator.position = new Vector3(Mathf.FloorToInt(toolIndicator.position.x) + 1f,
-            Mathf.FloorToInt(toolIndicator.position.y) + 1f,
-            0f);
-
+        else
+        {
+            toolIndicator.position = new Vector3(0f, 0f, -20f);
+        }
     }
 
     void UseTool()
@@ -137,7 +143,7 @@ public class PlayerController : MonoBehaviour
         //block = FindFirstObjectByType<GrowBlock>();
         //block.PloughSoil();
 
-        block = GridController.instance.GetBlock(toolIndicator.position.x - 1f, 
+        block = GridController.instance.GetBlock(toolIndicator.position.x - 1f,
             toolIndicator.position.y - 1f);
 
         toolWaitCounter = toolWaitTime;
