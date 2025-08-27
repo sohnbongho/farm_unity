@@ -68,8 +68,10 @@ public class GridInfo : MonoBehaviour
                                 break;
                         }                        
                     }
-                    theGrid[y].blocks[x].isWatered = false;
+                    theGrid[y].blocks[x].isWatered = false;                
                 }
+                // 필요 없는 지역 갱신
+
                 if(theGrid[y].blocks[x].currentStage == GrowBlock.GrowStage.ploughed)
                 {
                     theGrid[y].blocks[x].currentStage = GrowBlock.GrowStage.barren;
