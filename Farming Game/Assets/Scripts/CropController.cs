@@ -53,6 +53,29 @@ public class CropController : MonoBehaviour
             return null;
         }
     }
+
+    public void UseSeed(CropType seedToUse)
+    {
+        foreach (CropInfo info in cropList)
+        {
+            if(info.cropType == seedToUse)
+            {
+                info.seedAmount--;
+            }
+        }
+    }
+
+    public void AddCrop(CropType cropToAdd)
+    {
+        foreach (CropInfo info in cropList)
+        {
+            if (info.cropType == cropToAdd)
+            {
+                info.cropAmount++;
+            }
+        }
+    }
+
 }
 
 [System.Serializable]

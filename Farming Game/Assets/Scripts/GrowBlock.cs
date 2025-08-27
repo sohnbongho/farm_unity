@@ -161,6 +161,8 @@ public class GrowBlock : MonoBehaviour
             SetSoilSprite();
             
             cropSR.sprite = null;
+
+            CropController.instance.AddCrop(cropType);
         }
     }
     public void SetGridPosition(int x, int y)
