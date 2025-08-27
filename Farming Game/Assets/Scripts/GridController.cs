@@ -80,6 +80,7 @@ public class GridController : MonoBehaviour
 
                     newBlock.currentStage = sotredBlock.currentStage;
                     newBlock.isWatered = sotredBlock.isWatered;
+                    newBlock.cropType = sotredBlock.cropType;
 
                     newBlock.SetSoilSprite();
                     newBlock.UpdateCropSprite();

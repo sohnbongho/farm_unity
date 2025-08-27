@@ -17,7 +17,7 @@ public class CropController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     public enum CropType
     {
         pumpkin,
@@ -31,6 +31,28 @@ public class CropController : MonoBehaviour
     }
 
     public List<CropInfo> cropList = new List<CropInfo>();
+
+    public CropInfo GetCropInfo(CropType cropToGet)
+    {
+        int position = -1;
+
+        for (int i = 0; i < cropList.Count; i++)
+        {
+            if (cropList[i].cropType == cropToGet)
+            {
+                position = i;
+
+            }
+        }
+        if(position >= 0)
+        {
+            return cropList[position];
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
 
 [System.Serializable]

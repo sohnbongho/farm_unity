@@ -6073,6 +6073,7 @@ MonoBehaviour:
   cropRipe: {fileID: -6800931340347744238, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
   isWatered: 0
   preventUse: 0
+  cropType: 0
 --- !u!4 &1392728886
 Transform:
   m_ObjectHideFlags: 0
@@ -34023,6 +34024,7 @@ MonoBehaviour:
   toolWaitTime: 0.5
   toolIndicator: {fileID: 2116512264}
   toolRange: 3
+  seedCropType: 2
 --- !u!70 &2141846277
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

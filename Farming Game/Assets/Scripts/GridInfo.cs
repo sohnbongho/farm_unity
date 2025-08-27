@@ -40,6 +40,7 @@ public class GridInfo : MonoBehaviour
     {
         theGrid[yPos].blocks[xPos].currentStage = theBlock.currentStage;
         theGrid[yPos].blocks[xPos].isWatered = theBlock.isWatered;
+        theGrid[yPos].blocks[xPos].cropType = theBlock.cropType;
     }
 
     public void GrowCrop()
@@ -82,6 +83,7 @@ public class BlockInfo
 {
     public bool isWatered;
     public GrowBlock.GrowStage currentStage;
+    public CropController.CropType cropType;
 }
 
 [System.Serializable]
