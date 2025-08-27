@@ -76,11 +76,12 @@ public class GridController : MonoBehaviour
                 // 저장된 값으로 셋팅
                 if(GridInfo.instance.hasGrid == true)
                 {
-                    BlockInfo sotredBlock = GridInfo.instance.theGrid[y].blocks[x];
+                    BlockInfo storedBlock = GridInfo.instance.theGrid[y].blocks[x];
 
-                    newBlock.currentStage = sotredBlock.currentStage;
-                    newBlock.isWatered = sotredBlock.isWatered;
-                    newBlock.cropType = sotredBlock.cropType;
+                    newBlock.currentStage = storedBlock.currentStage;
+                    newBlock.isWatered = storedBlock.isWatered;
+                    newBlock.cropType = storedBlock.cropType;
+                    newBlock.growFailChance = storedBlock.growFailChance;
 
                     newBlock.SetSoilSprite();
                     newBlock.UpdateCropSprite();

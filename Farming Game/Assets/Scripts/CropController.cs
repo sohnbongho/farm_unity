@@ -86,4 +86,7 @@ public class CropInfo
 
     public int seedAmount, cropAmount;
 
+    [Range(0f, 100f)]
+    public float growthFailChance;
+
 }

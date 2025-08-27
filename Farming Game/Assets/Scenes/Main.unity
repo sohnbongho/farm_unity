@@ -6344,6 +6344,7 @@ MonoBehaviour:
     ripe: {fileID: -6800931340347744238, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
+    growthFailChance: 10
   - cropType: 1
     finalCrop: {fileID: 5508725064705088119, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: 2614870373251885436, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -6353,6 +6354,7 @@ MonoBehaviour:
     ripe: {fileID: -862800679913824809, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
+    growthFailChance: 20
   - cropType: 2
     finalCrop: {fileID: -68751727340038015, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: -2693009140137883590, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -6362,6 +6364,7 @@ MonoBehaviour:
     ripe: {fileID: 3390126664149698875, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
+    growthFailChance: 30
   - cropType: 3
     finalCrop: {fileID: 6099581493293703690, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: -956252262595852801, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -6371,6 +6374,7 @@ MonoBehaviour:
     ripe: {fileID: -3800458654278106549, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
+    growthFailChance: 40
   - cropType: 4
     finalCrop: {fileID: -5428206428529569624, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: 6738218706411903907, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -6378,8 +6382,9 @@ MonoBehaviour:
     growStage1: {fileID: -5286125387984224900, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     growStage2: {fileID: -5119893442609476536, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     ripe: {fileID: 2393381137972445386, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
-    seedAmount: 5
+    seedAmount: 999999
     cropAmount: 0
+    growthFailChance: 50
   - cropType: 5
     finalCrop: {fileID: -7833671090200325546, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: -6338023803479276477, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -6389,6 +6394,7 @@ MonoBehaviour:
     ripe: {fileID: 6984442412936397737, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
+    growthFailChance: 60
   - cropType: 6
     finalCrop: {fileID: 5860025163644826426, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: 6395214293025444372, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -6398,6 +6404,7 @@ MonoBehaviour:
     ripe: {fileID: 1552293971409657765, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
+    growthFailChance: 70
   - cropType: 3
     finalCrop: {fileID: 6099581493293703690, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: -2245023530354808097, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
@@ -6407,6 +6414,7 @@ MonoBehaviour:
     ripe: {fileID: -3800458654278106549, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
+    growthFailChance: 80
 --- !u!4 &1539368187
 Transform:
   m_ObjectHideFlags: 0
@@ -34024,7 +34032,7 @@ MonoBehaviour:
   toolWaitTime: 0.5
   toolIndicator: {fileID: 2116512264}
   toolRange: 3
-  seedCropType: 2
+  seedCropType: 4
 --- !u!70 &2141846277
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
