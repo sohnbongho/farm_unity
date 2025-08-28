@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class UIController : MonoBehaviour
     public GameObject[] toolbarActivatorIcons;
     public TMP_Text timeText;
     public InventoryController theIC;
+    public Image seedImage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,5 +72,10 @@ public class UIController : MonoBehaviour
         {
             timeText.text = Mathf.FloorToInt(currentTime - 24) + "AM";
         }
+    }
+
+    public void SwitchSeed(CropController.CropType crop)
+    {
+        seedImage.sprite = CropController.instance.GetCropInfo(crop).seedType;
     }
 }

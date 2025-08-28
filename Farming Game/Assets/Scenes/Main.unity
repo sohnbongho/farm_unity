@@ -9203,6 +9203,7 @@ MonoBehaviour:
   - {fileID: 1024617066}
   timeText: {fileID: 1324071567}
   theIC: {fileID: 1064711000}
+  seedImage: {fileID: 1301124432}
 --- !u!1 &1371134034
 GameObject:
   m_ObjectHideFlags: 0

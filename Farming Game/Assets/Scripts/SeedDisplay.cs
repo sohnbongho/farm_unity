@@ -17,11 +17,10 @@ public class SeedDisplay : MonoBehaviour
         seedAmount.text = "x" + info.seedAmount;
     }
 
-
-
     public void SelectSeed()
     {
+        PlayerController.instance.SwitchSeed(crop);
 
+        UIController.instance.SwitchSeed(crop);
     }
-
 }
