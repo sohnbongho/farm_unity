@@ -89,4 +89,6 @@ public class CropInfo
     [Range(0f, 100f)]
     public float growthFailChance;
 
+    public float seedPrice, cropPrice;
+
 }
