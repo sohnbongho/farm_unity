@@ -23,6 +23,7 @@ public class UIController : MonoBehaviour
     public GameObject[] toolbarActivatorIcons;
     public TMP_Text timeText;
     public InventoryController theIC;
+    public ShopController theShop;
     public Image seedImage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,6 +38,11 @@ public class UIController : MonoBehaviour
         if (Keyboard.current.iKey.wasPressedThisFrame)
         {
             theIC.OpenClose();
+        }
+
+        if (Keyboard.current.bKey.wasPressedThisFrame)
+        {
+            theShop.OpenClose();
         }
 
     }
