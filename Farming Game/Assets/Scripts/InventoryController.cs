@@ -3,9 +3,11 @@ using UnityEngine;
 public class InventoryController : MonoBehaviour
 {
     public SeedDisplay[] seeds;
+    public CropDisplay[] crops;
+
     public void OpenClose()
     {
-        if(gameObject.activeSelf == false)
+        if (gameObject.activeSelf == false)
         {
             gameObject.SetActive(true);
             UpdateDisplay();
@@ -18,9 +20,14 @@ public class InventoryController : MonoBehaviour
 
     public void UpdateDisplay()
     {
-        foreach(SeedDisplay seed in seeds)
+        foreach (SeedDisplay seed in seeds)
         {
             seed.UpdateDisplay();
+        }
+        
+        foreach (CropDisplay crop in crops)
+        {
+            crop.UpdateDisplay();
         }
     }
 
