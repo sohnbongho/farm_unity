@@ -21,6 +21,14 @@ public class ShopCropDisplay : MonoBehaviour
 
     public void SellCrop()
     {
+        CropInfo info = CropController.instance.GetCropInfo(crop);
+        if(info.cropAmount > 0)
+        {
+            CurrencyController.instance.AddMoney(info.cropAmount * info.cropPrice);
 
+            CropController.instance.RemoveCrop(crop);
+
+            UpdateDisplay();
+        }        
     }
 }
