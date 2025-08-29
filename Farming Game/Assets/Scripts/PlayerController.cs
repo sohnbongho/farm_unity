@@ -59,6 +59,16 @@ public class PlayerController : MonoBehaviour
                     return;
                 }
             }
+
+            if (UIController.instance.theShop != null)
+            {
+                if (UIController.instance.theShop.gameObject.activeSelf == true)
+                {
+                    theRB.linearVelocity = Vector2.zero;
+
+                    return;
+                }
+            }
         }
 
         if (toolWaitCounter > 0)
