@@ -107,18 +107,18 @@ public class UIController : MonoBehaviour
         if(pauseScreen.activeSelf == false)
         {
             pauseScreen.SetActive(true);
-            Time.timeScale = 0f;
+            Time.timeScale = 0f; // 전체 tick 중지
         }
         else
         {
             pauseScreen.SetActive(false);
-            Time.timeScale = 1f;
+            Time.timeScale = 1f;// 전체 tick 시작
         }
     }
 
     public void MainMenu()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;// 전체 tick 시작
 
         SceneManager.LoadScene(mainMenuScene);
 
