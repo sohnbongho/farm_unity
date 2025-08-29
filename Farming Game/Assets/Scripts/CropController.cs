@@ -44,7 +44,7 @@ public class CropController : MonoBehaviour
 
             }
         }
-        if(position >= 0)
+        if (position >= 0)
         {
             return cropList[position];
         }
@@ -58,7 +58,7 @@ public class CropController : MonoBehaviour
     {
         foreach (CropInfo info in cropList)
         {
-            if(info.cropType == seedToUse)
+            if (info.cropType == seedToUse)
             {
                 info.seedAmount--;
             }
@@ -72,6 +72,17 @@ public class CropController : MonoBehaviour
             if (info.cropType == cropToAdd)
             {
                 info.cropAmount++;
+            }
+        }
+    }
+
+    public void AddSeed(CropType seedToAdd, int amount)
+    {
+        foreach (CropInfo info in cropList)
+        {
+            if (info.cropType == seedToAdd)
+            {
+                info.seedAmount += amount;
             }
         }
     }

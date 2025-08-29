@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ShopSeedDisplay : MonoBehaviour
 {
     public CropController.CropType crop;
-    
+
     public Image seedImage;
     public TMP_Text seedAmount, priceText;
 
@@ -21,7 +21,16 @@ public class ShopSeedDisplay : MonoBehaviour
 
     public void BuySeed(int amount)
     {
+        CropInfo info = CropController.instance.GetCropInfo(crop);
 
+        if (CurrencyController.instance.CheckMoney(info.seedPrice * amount))
+        {
+            CropController.instance.AddSeed(crop, amount);
+
+            CurrencyController.instance.SpendMoney(info.seedPrice * amount);
+
+            UpdateDisplay();
+        }
     }
 
 }
