@@ -16,6 +16,7 @@ public class MainMenuController : MonoBehaviour
 
         AudioManager.instance.PlayNextBGM();
 
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
     }
 
     public void QuitGame()

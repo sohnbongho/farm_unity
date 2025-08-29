@@ -21,6 +21,8 @@ public class AudioManager : MonoBehaviour
     private int currentTrack;
     private bool isPaused;
 
+    public AudioSource[] sfx;
+
     private void Start()
     {
         currentTrack = -1;
@@ -28,14 +30,14 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        if(isPaused == false && currentTrack >= 0)
+        if (isPaused == false && currentTrack >= 0)
         {
             if (bgMusic[currentTrack].isPlaying == false)
             {
                 PlayNextBGM();
             }
         }
-        
+
     }
 
     public void StopMusic()
@@ -77,5 +79,17 @@ public class AudioManager : MonoBehaviour
     {
         isPaused = false;
         bgMusic[currentTrack].Play();
+    }
+
+    public void PlaySFX(int sfxToPlay)
+    {
+        sfx[sfxToPlay].Stop();
+        sfx[sfxToPlay].Play();
+    }
+    public void PlaySFXPitchAdjusted(int sfxToPlay)
+    {
+        sfx[sfxToPlay].pitch = Random.Range(.8f, 1.2f);
+
+        PlaySFX(sfxToPlay);
     }
 }

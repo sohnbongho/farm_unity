@@ -17,6 +17,8 @@ public class DayEndController : MonoBehaviour
             dayText.text = "- Day " + TimeController.instance.currentDay + " -";
         }
         AudioManager.instance.PauseMusic();
+
+        AudioManager.instance.PlaySFX(1);
     }
     private void Update()
     {

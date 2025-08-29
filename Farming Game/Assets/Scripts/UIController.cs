@@ -114,6 +114,8 @@ public class UIController : MonoBehaviour
             pauseScreen.SetActive(false);
             Time.timeScale = 1f;// 전체 tick 시작
         }
+
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
     }
 
     public void MainMenu()
@@ -128,6 +130,8 @@ public class UIController : MonoBehaviour
         Destroy(TimeController.instance.gameObject);
         Destroy(CropController.instance.gameObject);
         Destroy(CurrencyController.instance.gameObject);
+
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
 
     }
     public void QuitGame()
