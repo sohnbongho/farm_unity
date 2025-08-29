@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class UIController : MonoBehaviour
     public Image seedImage;
 
     public TMP_Text moneyText;
+    public GameObject pauseScreen;
+    public string mainMenuScene;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,6 +51,11 @@ public class UIController : MonoBehaviour
         }
 #endif
 
+        if (Keyboard.current.escapeKey.wasPressedThisFrame || 
+            Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            PauseUnpause();
+        }
 
     }
     public void SwitchTool(int selected)
@@ -92,5 +100,38 @@ public class UIController : MonoBehaviour
     public void UpdateMoneyText(float currentMoney)
     {
         moneyText.text = "$" + currentMoney;
+    }
+
+    public void PauseUnpause()
+    {
+        if(pauseScreen.activeSelf == false)
+        {
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene(mainMenuScene);
+
+        Destroy(gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(GridInfo.instance.gameObject);
+        Destroy(TimeController.instance.gameObject);
+        Destroy(CropController.instance.gameObject);
+        Destroy(CurrencyController.instance.gameObject);
+
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
