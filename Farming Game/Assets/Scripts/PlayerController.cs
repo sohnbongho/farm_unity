@@ -37,6 +37,20 @@ public class PlayerController : MonoBehaviour
     public float toolRange = 3f;
     public CropController.CropType seedCropType;
 
+    private void OnEnable()
+    {
+        if (instance != this) return;
+        moveInput.action.Enable();
+        actionInput.action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (instance != this) return;
+        moveInput.action.Disable();
+        actionInput.action.Disable();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -151,7 +165,7 @@ public class PlayerController : MonoBehaviour
             toolIndicator.position = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             toolIndicator.position = new Vector3(toolIndicator.position.x, toolIndicator.position.y, 0f);
 
-            // ÁÂÇ¥¸¦ Æ¯Á¤ ¹üÀ§ ÀÌ»óÀ¸·Î ¸ø°¡°Ô ÇÏ±â
+            // ï¿½ï¿½Ç¥ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½
             if (Vector3.Distance(toolIndicator.position, transform.position) > toolRange)
             {
                 Vector2 direction = toolIndicator.position - transform.position;
@@ -159,7 +173,7 @@ public class PlayerController : MonoBehaviour
                 toolIndicator.position = transform.position + new Vector3(direction.x, direction.y, 0f);
             }
 
-            // ¹Ý¿Ã¸²ÇÏ¿©¼­ ³Ñ¾î°¡Áö ¸øÇÏ°Ô ÇÑ´Ù.
+            // ï¿½Ý¿Ã¸ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ñ´ï¿½.
             toolIndicator.position = new Vector3(Mathf.FloorToInt(toolIndicator.position.x) + 1f,
                 Mathf.FloorToInt(toolIndicator.position.y) + 1f,
                 0f);

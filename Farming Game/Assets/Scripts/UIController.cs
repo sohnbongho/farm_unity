@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,8 @@ public class UIController : MonoBehaviour
         }
         else
         {
+            var dupES = GetComponentInChildren<EventSystem>(true);
+            if (dupES != null) DestroyImmediate(dupES.gameObject);
             Destroy(gameObject);
         }
 
@@ -107,12 +110,12 @@ public class UIController : MonoBehaviour
         if(pauseScreen.activeSelf == false)
         {
             pauseScreen.SetActive(true);
-            Time.timeScale = 0f; // ÀüÃ¼ tick ÁßÁö
+            Time.timeScale = 0f; // ï¿½ï¿½Ã¼ tick ï¿½ï¿½ï¿½ï¿½
         }
         else
         {
             pauseScreen.SetActive(false);
-            Time.timeScale = 1f;// ÀüÃ¼ tick ½ÃÀÛ
+            Time.timeScale = 1f;// ï¿½ï¿½Ã¼ tick ï¿½ï¿½ï¿½ï¿½
         }
 
         AudioManager.instance.PlaySFXPitchAdjusted(5);
@@ -120,7 +123,7 @@ public class UIController : MonoBehaviour
 
     public void MainMenu()
     {
-        Time.timeScale = 1f;// ÀüÃ¼ tick ½ÃÀÛ
+        Time.timeScale = 1f;// ï¿½ï¿½Ã¼ tick ï¿½ï¿½ï¿½ï¿½
 
         SceneManager.LoadScene(mainMenuScene);
 

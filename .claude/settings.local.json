@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(python3 *)",
+      "Bash(grep -n \"m_Script: {fileID: 11500000, guid: 0d1d0afc2cf30be4596b1ec01ee572eb\" \"/mnt/d/01-git/farm_unity/Farming Game/Assets/Scenes/Main.unity\")",
+      "Bash(awk 'NR>=1 && /EventSystem/{found=NR; print} found && NR>found && NR<=found+20{print}')"
+    ]
+  }
+}
