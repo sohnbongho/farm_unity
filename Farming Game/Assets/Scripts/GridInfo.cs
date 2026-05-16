@@ -70,7 +70,7 @@ public class GridInfo : MonoBehaviour
                     }
                     theGrid[y].blocks[x].isWatered = false;                
                 }
-                // ÇÊ¿ä ¾ø´Â Áö¿ª °»½Å
+                // ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
                 if(theGrid[y].blocks[x].currentStage == GrowBlock.GrowStage.ploughed)
                 {
@@ -80,6 +80,7 @@ public class GridInfo : MonoBehaviour
             }
         }
     }
+#if UNITY_EDITOR
     private void Update()
     {
         if (Keyboard.current.yKey.wasPressedThisFrame)
@@ -87,6 +88,7 @@ public class GridInfo : MonoBehaviour
             GrowCrop();
         }
     }
+#endif
 
 }
 
